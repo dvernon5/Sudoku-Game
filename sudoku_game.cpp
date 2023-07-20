@@ -1,4 +1,6 @@
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 const int BOARD_SIZE = 9;
 const int EMPTY_CELL = 0;
