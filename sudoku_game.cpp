@@ -6,9 +6,12 @@ const int EMPTY_CELL = 0;
 bool findEmptyCell(int board[BOARD_SIZE][BOARD_SIZE], int& row, int& col);
 bool spaceAvailable(int board[BOARD_SIZE][BOARD_SIZE], int row, int col, int num);
 bool solveSudoku(int board[BOARD_SIZE][BOARD_SIZE]);
+void generateRandomPuzzle(int board[BOARD_SIZE][BOARD_SIZE]);
+void removeCells(int board[BOARD_SIZE][BOARD_SIZE], int numCellsToRemove);
+void printBoard(int board[BOARD_SIZE][BOARD_SIZE]);
 
 int main()
-{
+{   
     return 0;
 }
 
@@ -133,5 +136,17 @@ void removeCells(int board[BOARD_SIZE][BOARD_SIZE], int numCellsToRemove)
 
             --numCellsToRemove;
         }
+    }
+}
+
+void printBoard(int board[BOARD_SIZE][BOARD_SIZE])
+{
+    for (int row = 0; row < 9; ++row)
+    {
+        for (int col = 0; col < 9; ++col)
+        {
+            std::cout << board[row][col] << " ";
+        }
+        std::cout << std::endl;
     }
 }
