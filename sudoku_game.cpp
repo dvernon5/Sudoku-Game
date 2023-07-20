@@ -1,8 +1,16 @@
 #include <iostream>
 
-
 const int BOARD_SIZE = 9;
 const int EMPTY_CELL = 0;
+
+bool findEmptyCell(int board[BOARD_SIZE][BOARD_SIZE], int& row, int& col);
+bool spaceAvailable(int board[BOARD_SIZE][BOARD_SIZE], int row, int col, int num);
+bool solveSudoku(int board[BOARD_SIZE][BOARD_SIZE]);
+
+int main()
+{
+    return 0;
+}
 
 bool findEmptyCell(int board[BOARD_SIZE][BOARD_SIZE], int& row, int& col)
 {
