@@ -11,6 +11,7 @@ The Sudoku solver is implemented using a backtracking algorithm. It takes a 9X9 
 2. Call the solveSudoku() function with your Sudoku grid as an argument.
 3. If the function returns true, your Sudoku grid has been solved, and the updated grid contains the solution.
 
+```shell
  // Example usage
 int grid[GRID_SIZE][GRID_SIZE] = {
     {5, 3, 0, 0, 7, 0, 0, 0, 0},
@@ -23,7 +24,7 @@ int grid[GRID_SIZE][GRID_SIZE] = {
     {0, 0, 0, 4, 1, 9, 0, 0, 5},
     {0, 0, 0, 0, 8, 0, 0, 7, 9}
 };
-
+```
 if (solveSudoku(grid)) {
     // Your Sudoku puzzle has been solved
     printGrid(grid);
