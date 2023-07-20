@@ -24,13 +24,13 @@ int grid[GRID_SIZE][GRID_SIZE] = {
     {0, 0, 0, 4, 1, 9, 0, 0, 5},
     {0, 0, 0, 0, 8, 0, 0, 7, 9}
 };
-```
 if (solveSudoku(grid)) {
     // Your Sudoku puzzle has been solved
     printGrid(grid);
 } else {
     std::cout << "No solution exists." << std::endl;
 }
+```
 
 
 ## Sudoku Puzzle Generator
@@ -39,6 +39,7 @@ The Sudoku puzzle generator creates a random Sudoku puzzle with a specified diff
 ### How to use the Sudoku Puzzle Generator
 1. Call the generateRandomPuzzle() function with an empty 9X9 Sudoku grid as an argument. The function will update the grid with a randomly generated Sudoku puzzle.
 
+```shell
 // Example usage
 int grid[GRID_SIZE][GRID_SIZE];
 
@@ -46,6 +47,6 @@ generateRandomPuzzle(grid);
 
 std::cout << "Generated Sudoku Puzzle:" << std::endl;
 printGrid(grid);
-
+```
 
 You can control the difficulty of the puzzle by adjusting the numCellsToRemove variable in the generateRandomPuzzle() function. A higher value of numCellsToRemove will result in a more challenging puzzle. 
