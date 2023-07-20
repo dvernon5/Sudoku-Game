@@ -73,3 +73,65 @@ bool solveSudoku(int board[BOARD_SIZE][BOARD_SIZE])
     }
     return false;  // If no number can be placed, backtrack.
 }
+
+void generateRandomPuzzle(int board[BOARD_SIZE][BOARD_SIZE])
+{
+    // Start with a solved board.
+    int solveBoard[BOARD_SIZE][BOARD_SIZE] = {
+        { 5, 3, 4, 6, 7, 8, 9, 1, 2 },
+        { 6, 7, 2, 1, 9, 5, 3, 4, 8 },
+        { 1, 9, 8, 3, 4, 2, 5, 6, 7 },
+        { 8, 5, 9, 7, 6, 1, 4, 2, 3 },
+        { 4, 2, 6, 8, 5, 3, 7, 9, 1 },
+        { 7, 1, 3, 9, 2, 4, 8, 5, 6 },
+        { 9, 6, 1, 5, 3, 7, 2, 8, 4 },
+        { 2, 8, 7, 4, 1, 9, 6, 3, 5 },
+        { 3, 4, 5, 2, 8, 6, 1, 7, 9 }
+    };
+
+    // Randomly remove cells to create the puzzle.
+    int numCellsToRemove = 40;
+    for (int i = 0; i < BOARD_SIZE; ++i)
+    {
+        for (int j = 0; j < BOARD_SIZE; ++j)
+        {
+            board[i][j] = solveBoard[i][j];
+        }
+    }
+    removeCells(board, numCellsToRemove);
+}
+
+void removeCells(int board[BOARD_SIZE][BOARD_SIZE], int numCellsToRemove)
+{
+    std::srand(std::time(0));  // Send the random number generator. 
+
+    while (numCellsToRemove > 0)
+    {
+        int row = std::rand() % BOARD_SIZE;
+        int col = std::rand() % BOARD_SIZE;
+
+        if (board[row][col] != EMPTY_CELL)
+        {
+            int temp = board[row][col];
+            board[row][col] = EMPTY_CELL;
+
+            // Check if the puzzle still has a unique solution after removing the cell.
+            int tempBoard[BOARD_SIZE][BOARD_SIZE];
+            for (int i = 0; i < BOARD_SIZE; ++i)
+            {
+                for (int j = 0; j < BOARD_SIZE; ++j)
+                {
+                    tempBoard[i][j] = board[i][j];
+                }
+            }
+
+            if (!solveSudoku(tempBoard))
+            {
+                // If the puzzle is no longer solvable or has multiple solutions, undo the removal
+                board[row][col] = temp;
+            }
+
+            --numCellsToRemove;
+        }
+    }
+}
