@@ -46,3 +46,22 @@ bool spaceAvailable(int board[BOARD_SIZE][BOARD_SIZE], int row, int col, int num
     }
     return true;  // If num doesn't conflict with any other number, space is available. 
 }
+
+bool solveSudoku(int board[BOARD_SIZE][BOARD_SIZE])
+{
+    int row = 0, col = 0;
+
+    if (!findEmptyCell(board, row, col)) { return true; }  // If no empty cell is found, the puzzle is solved.
+
+    for (int num = 1; num <= BOARD_SIZE; ++num)
+    {
+        if (spaceAvailable(board, row, col))
+        {
+            board[row][col] = num;
+
+            if (solveSudoku(board)) { return true; }  // Recursively solve the Sudoku.
+            board[row][col] = EMPTY_CELL;  // Undo the choice and try another number.
+        }
+    }
+    return false;  // If no number can be placed, backtrack.
+}
