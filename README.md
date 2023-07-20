@@ -32,7 +32,6 @@ if (solveSudoku(grid)) {
 }
 ```
 
-
 ## Sudoku Puzzle Generator
 The Sudoku puzzle generator creates a random Sudoku puzzle with a specified difficulty level. It starts with a solved Sudoku grid and then randomly removes cells while ensuring that the puzzle remains solvable and has a unique solution.
 
