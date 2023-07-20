@@ -12,6 +12,25 @@ void printBoard(int board[BOARD_SIZE][BOARD_SIZE]);
 
 int main()
 {   
+    int board[BOARD_SIZE][BOARD_SIZE];
+
+    // Generate a random Sudoku puzzle. 
+    generateRandomPuzzle(board);
+
+    std::cout << "Generated Sudoku Puzzle:" << std::endl;
+    printBoard(board);
+
+    // Solve the Sudoku puzzle.
+    if (solveSudoku(board))
+    {
+        std::cout << "\nSolution:" << std::endl;
+        printBoard(board);
+    }
+    else
+    {
+        std::cout << "\nNo solution exists." << std::endl;
+    }
+    
     return 0;
 }
 
